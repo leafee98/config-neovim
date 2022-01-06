@@ -8,8 +8,11 @@ execute 'source' "~/.config/nvim/plugins.vim"
 " load custom config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" plugin 'toogleterm' need this or it will initialze a new terminal each time
+" foucus on terminal
 set hidden
 
+" show some whitespaces
 set list
 
 " set for "hybrid" line number
