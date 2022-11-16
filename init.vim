@@ -37,23 +37,30 @@ set hidden
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:plugs = []
-call add(s:plugs, 'neovim/nvim-lspconfig')
 
-" call add(s:plugs, 'kyazdani42/nvim-web-devicons') " for file icons
-call add(s:plugs, 'kyazdani42/nvim-tree.lua')
+function! s:add_plug(name, setup = v:true)
+    call add(s:plugs, { 'setup': a:setup, 'name': a:name })
+endfunction
 
-call add(s:plugs, 'nvim-lualine/lualine.nvim')
+function! s:plug_name(dict)
+    return get(a:dict, 'name')
+endfunction
 
-call add(s:plugs, 'akinsho/toggleterm.nvim')
+function! s:plug_setup(dict)
+    return get(a:dict, 'setup')
+endfunction
 
-call add(s:plugs, 'lukas-reineke/indent-blankline.nvim')
+" call add_plug('kyazdani42/nvim-web-devicons', v:false)
+" call add_plug('bling/vim-bufferline', v:false)
 
-" call add(s:plugs, 'bling/vim-bufferline')
-call add(s:plugs, 'ap/vim-buftabline')
-
-call add(s:plugs, 'jupyter-vim/jupyter-vim')
-
-call add(s:plugs, 'projekt0n/github-nvim-theme')
+call s:add_plug('neovim/nvim-lspconfig')
+call s:add_plug('kyazdani42/nvim-tree.lua')
+call s:add_plug('nvim-lualine/lualine.nvim')
+call s:add_plug('akinsho/toggleterm.nvim')
+call s:add_plug('lukas-reineke/indent-blankline.nvim')
+call s:add_plug('ap/vim-buftabline')
+call s:add_plug('jupyter-vim/jupyter-vim')
+call s:add_plug('projekt0n/github-nvim-theme')
 
 
 function! s:setup_file(plug_name)
@@ -68,10 +75,13 @@ endfunction
 
 call plug#begin(has('nvim') ? stdpath('data') .. '/plugged' : '~/.vim/plugged')
 for p in s:plugs
-    Plug p
+    " Plug s:plug_name(p)
+    Plug get(p, 'name')
 endfor
 call plug#end()
 
 for p in s:plugs
-     execute 'source' stdpath('config') .. '/plugins.d/' .. s:setup_file(p)
+    if s:plug_setup(p)
+        execute 'source' stdpath('config') .. '/plugins.d/' .. s:setup_file(s:plug_name(p))
+    endif
 endfor
