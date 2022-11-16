@@ -5,6 +5,7 @@
 lua << EOF
 
 local nvim_lsp = require('lspconfig')
+-- local util = require('lsputil')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -41,13 +42,14 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver', 'html' }
+local servers = { 'pyright', 'html' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
-    }
+    },
+    root_dir = nvim_lsp.util.find_git_ancestor
   }
 end
 
