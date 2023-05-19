@@ -42,7 +42,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'html' }
+local servers = { 'pyright', 'html', 'gopls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -52,5 +52,8 @@ for _, lsp in ipairs(servers) do
     root_dir = nvim_lsp.util.find_git_ancestor
   }
 end
+
+require'lspconfig'.quick_lint_js.setup{}
+require'lspconfig'.denols.setup{}
 
 EOF

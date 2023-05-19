@@ -20,17 +20,24 @@ set expandtab
 set autoindent
 set smartindent
 
-
 let mapleader="\<Space>"
 let maplocalleader="\<Space>"
-
-
-" set statusline=%n\ %<%f\ %LL\ %{&modified?'[+]':&modifiable\|\|&ft=~'^\\vhelp\|qf$'?'':'[-]'}%h%r%{&fenc=='utf-8'\|\|&fenc==''?'':'['.&fenc.']'}%{'['.&ff.']'}%{&bomb?'[BOM]':''}%{&eol?'':'[noeol]'}%{&diff?'[diff]':''}%=\ 0x%-4.8B\ \ \ \ %-14.(%l,%c%V%)\ %p%%
-
 
 " plugin 'toogleterm' need this or it will initialze a new terminal each time foucus on terminal
 set hidden
 
+nmap <C-q> <C-w>q
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+lua << EOF
+vim.g.markdown_fenced_languages = {
+    "ts=typescript"
+}
+EOF
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " config of vim-plug
@@ -50,17 +57,26 @@ function! s:plug_setup(dict)
     return get(a:dict, 'setup')
 endfunction
 
-" call add_plug('kyazdani42/nvim-web-devicons', v:false)
 " call add_plug('bling/vim-bufferline', v:false)
 
 call s:add_plug('neovim/nvim-lspconfig')
 call s:add_plug('kyazdani42/nvim-tree.lua')
-call s:add_plug('nvim-lualine/lualine.nvim')
+call s:add_plug('kyazdani42/nvim-web-devicons', v:false)
 call s:add_plug('akinsho/toggleterm.nvim')
 call s:add_plug('lukas-reineke/indent-blankline.nvim')
-call s:add_plug('ap/vim-buftabline')
 call s:add_plug('jupyter-vim/jupyter-vim')
-call s:add_plug('projekt0n/github-nvim-theme')
+
+"call s:add_plug('nvim-lualine/lualine.nvim')
+"call s:add_plug('ap/vim-buftabline')
+"call s:add_plug('projekt0n/github-nvim-theme')
+
+call s:add_plug('morhetz/gruvbox', v:false)
+call s:add_plug('vim-airline/vim-airline', v:false)
+call s:add_plug('vim-airline/vim-airline-themes', v:false)
+call s:add_plug('bling/vim-bufferline', v:false)
+
+let g:airline_theme='violet'
+set background=dark
 
 
 function! s:setup_file(plug_name)
@@ -75,7 +91,6 @@ endfunction
 
 call plug#begin(has('nvim') ? stdpath('data') .. '/plugged' : '~/.vim/plugged')
 for p in s:plugs
-    " Plug s:plug_name(p)
     Plug get(p, 'name')
 endfor
 call plug#end()
