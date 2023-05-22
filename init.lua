@@ -24,6 +24,8 @@ vim.keymap.set("n", "<F3>", "<cmd>bdelete<CR>",      { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+full_feature = false
+
 -- Use lazy.nvim as plugin manager, and load plugin's config
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

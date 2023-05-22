@@ -9,6 +9,7 @@ return {
     },
     {
         "karb94/neoscroll.nvim",
+        enabled = full_feature,
         main = "neoscroll",
         opts = { },
     },
@@ -22,6 +23,7 @@ return {
     },
     {
         "akinsho/bufferline.nvim",
+        enabled = full_feature,
         main = "bufferline",
         opts = {
             options = {
@@ -45,6 +47,7 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
+        enabled = full_feature,
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
@@ -56,6 +59,7 @@ return {
     },
     {
         "nvim-tree/nvim-tree.lua",
+        enabled = full_feature,
         dependencies = {
             "nvim-tree/nvim-web-devicons"
         },
