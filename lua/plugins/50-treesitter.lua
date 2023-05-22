@@ -1,7 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     main = "nvim-treesitter.configs",
-    config = true,
     build =  ":TSUpdate",
     opts = {
         indent = { enable = true },

@@ -10,22 +10,15 @@ return {
     {
         "karb94/neoscroll.nvim",
         main = "neoscroll",
-        config = true,
         opts = { },
     },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "indent_blankline",
-        config = true,
         opts = {
             show_current_context = true,
             show_current_context_start = true,
         },
-    },
-    {
-        "lewis6991/gitsigns.nvim",
-        main = "gitsigns",
-        opts = { },
     },
     {
         "akinsho/bufferline.nvim",
