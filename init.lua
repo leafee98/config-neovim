@@ -24,7 +24,11 @@ vim.keymap.set("n", "<F3>", "<cmd>bdelete<CR>",      { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-full_feature = false
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+full_feature = file_exists(vim.fn.stdpath("config") .. "/_full_feature")
 
 -- Use lazy.nvim as plugin manager, and load plugin's config
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
