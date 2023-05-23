@@ -18,8 +18,8 @@ vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { silent = true })
 
 vim.keymap.set("n", "<F1>", "<cmd>bprevious<CR>", { silent = true })
-vim.keymap.set("n", "<F2>", "<cmd>bnext<CR>",      { silent = true })
-vim.keymap.set("n", "<F3>", "<cmd>bdelete<CR>",      { silent = true })
+vim.keymap.set("n", "<F2>", "<cmd>bnext<CR>",     { silent = true })
+vim.keymap.set("n", "<F3>", "<cmd>bdelete<CR>",   { silent = true })
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
