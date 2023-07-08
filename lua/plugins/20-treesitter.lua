@@ -52,8 +52,8 @@ end
 
 return {
     "nvim-treesitter/nvim-treesitter",
-    main = "nvim-treesitter.configs",
-    build =  ":TSUpdate",
+    name = "nvim-treesitter",
+    build = ":TSUpdate",
     opts = {
         indent = { enable = true },
         highlight = { enable = true },
@@ -61,4 +61,8 @@ return {
         auto_install = true,
         sync_install = false,
     },
+    config = function (this, opts)
+        require(this.name .. ".configs").setup(opts);
+        require(this.name .. ".install").prefer_git = true;
+    end
 }
