@@ -8,6 +8,14 @@ return {
         end
     },
     {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "indent_blankline",
+        opts = {
+            show_current_context = true,
+            show_current_context_start = true,
+        },
+    },
+    {
         "famiu/bufdelete.nvim",
         lazy = false,
         keys = {
@@ -19,14 +27,6 @@ return {
         enabled = full_feature,
         main = "neoscroll",
         opts = { },
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "indent_blankline",
-        opts = {
-            show_current_context = true,
-            show_current_context_start = true,
-        },
     },
     {
         "akinsho/bufferline.nvim",
