@@ -8,6 +8,13 @@ return {
         end
     },
     {
+        "famiu/bufdelete.nvim",
+        lazy = false,
+        keys = {
+            { "<F3>", "<cmd>Bdelete<CR>", mode = "n" },
+        },
+    },
+    {
         "karb94/neoscroll.nvim",
         enabled = full_feature,
         main = "neoscroll",
