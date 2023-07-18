@@ -32,10 +32,10 @@ return {
             m('n', '<leader>hR', gs.reset_buffer)
             m('n', '<leader>hp', gs.preview_hunk)
             m('n', '<leader>hb', function() gs.blame_line{full=true} end)
-            m('n', '<leader>tb', gs.toggle_current_line_blame)
+            -- m('n', '<leader>tb', gs.toggle_current_line_blame)
             m('n', '<leader>hd', gs.diffthis)
             m('n', '<leader>hD', function() gs.diffthis('~') end)
-            m('n', '<leader>td', gs.toggle_deleted)
+            -- m('n', '<leader>td', gs.toggle_deleted)
         end,
     },
     config = function (lazyplug, opts)
