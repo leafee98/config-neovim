@@ -44,7 +44,7 @@ local basic_ensure = {
     "yaml",
 }
 
-if full_feature then
+if custom.full_feature then
     ensure = full_ensure
 else
     ensure = basic_ensure
@@ -63,6 +63,10 @@ return {
     },
     config = function (this, opts)
         require(this.name .. ".configs").setup(opts);
-        require(this.name .. ".install").prefer_git = true;
+        if custom.proxy_url ~= "" then
+            require(this.name .. ".install").command_extra_args = {
+                curl = { "--proxy", custom.proxy_url }
+            }
+        end
     end
 }

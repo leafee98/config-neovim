@@ -12,8 +12,11 @@ git clone <url of this repo> ~/.config/nvim
 
 By default, this config will only include a few plugins, which suit for mataining other than editing frequently.
 
-If you want to use the full feature this config provided, create a file named `_full_feature` under the root of this repo (usually `~/.config/nvim`.
+A custom config (`custom.lua`) file placed aside with `init.lua` is optional, it's content like below.
 
 ```
-touch ~/.config/nvim/_full_feature
+return {
+    full_feature = true,                    # enable all configured plugins
+    proxy_url = "http://localhost:8888",    # setup proxy for some plugins (like treesitter)
+}
 ```

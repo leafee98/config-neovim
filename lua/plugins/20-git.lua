@@ -1,7 +1,7 @@
 return {
     "lewis6991/gitsigns.nvim",
     main = "gitsigns",
-    enabled = full_feature,
+    enabled = custom.full_feature,
     opts = {
         on_attach = function(bufnr)
             local gs = package.loaded.gitsigns

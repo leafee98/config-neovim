@@ -26,11 +26,19 @@ vim.keymap.set("n", "<F2>", "<cmd>bnext<CR>",     { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-function file_exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+-- Load custom config
+custom = {
+    full_feature = false,
+    proxy_url = "",
+}
+
+local custom_config_path = vim.fn.stdpath("config") .. "/custom.lua"
+local ok, t = pcall(dofile, custom_config_path)
+if ok then
+    for k, v in pairs(t) do
+        custom[k] = v
+    end
 end
-full_feature = file_exists(vim.fn.stdpath("config") .. "/_full_feature")
 
 -- Use lazy.nvim as plugin manager, and load plugin's config
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

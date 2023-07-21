@@ -39,7 +39,7 @@ end
 return {
     {
         "neovim/nvim-lspconfig",
-        enabled = full_feature,
+        enabled = custom.full_feature,
         dependencies = {
             "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
