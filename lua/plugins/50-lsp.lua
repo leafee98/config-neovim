@@ -52,7 +52,7 @@ return {
         config = function (_, opts)
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "quick_lint_js", "pylsp" }
+            local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "quick_lint_js" }
             for _, lsp in ipairs(servers) do
                 require("lspconfig")[lsp].setup{
                     capabilities = capabilities,
