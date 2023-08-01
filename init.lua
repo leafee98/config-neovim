@@ -14,11 +14,11 @@ vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 
-vim.keymap.set("n", "<C-q>", "<cmd>wincmd q<CR>", { silent = true })
-vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { silent = true })
-vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { silent = true })
+vim.keymap.set("n", "\\q", "<cmd>wincmd q<CR>", { silent = true })
+vim.keymap.set("n", "zh", "<cmd>wincmd h<CR>", { silent = true })
+vim.keymap.set("n", "zj", "<cmd>wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "zk", "<cmd>wincmd k<CR>", { silent = true })
+vim.keymap.set("n", "zl", "<cmd>wincmd l<CR>", { silent = true })
 
 vim.keymap.set("n", "<F1>", "<cmd>bprevious<CR>", { silent = true })
 vim.keymap.set("n", "<F2>", "<cmd>bnext<CR>",     { silent = true })
