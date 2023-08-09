@@ -20,8 +20,9 @@ vim.keymap.set("n", "zj", "<cmd>wincmd j<CR>", { silent = true })
 vim.keymap.set("n", "zk", "<cmd>wincmd k<CR>", { silent = true })
 vim.keymap.set("n", "zl", "<cmd>wincmd l<CR>", { silent = true })
 
-vim.keymap.set("n", "<F1>", "<cmd>bprevious<CR>", { silent = true })
-vim.keymap.set("n", "<F2>", "<cmd>bnext<CR>",     { silent = true })
+vim.keymap.set("n", "zn", "<cmd>bnext<CR>", { silent = true })
+vim.keymap.set("n", "zp", "<cmd>bprevious<CR>", { silent = true })
+vim.keymap.set("n", "zx", "<cmd>bdelete<CR>", { silent = true })
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

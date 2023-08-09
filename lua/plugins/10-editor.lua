@@ -19,7 +19,7 @@ return {
         "famiu/bufdelete.nvim",
         lazy = false,
         keys = {
-            { "<F3>", "<cmd>Bdelete<CR>", mode = "n" },
+            { "zx", "<cmd>Bdelete<CR>", mode = "n" },
         },
     },
     {
