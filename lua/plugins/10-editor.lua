@@ -9,11 +9,8 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        main = "indent_blankline",
-        opts = {
-            show_current_context = true,
-            show_current_context_start = true,
-        },
+        main = "ibl",
+        opts = { },
     },
     {
         "famiu/bufdelete.nvim",
